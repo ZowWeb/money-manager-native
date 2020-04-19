@@ -34,7 +34,17 @@ import {
 
 import {Form, Item, Input, Label} from 'native-base';
 
+// import {GlobalProvider} from './context/GlobalState';
+
 const App = () => {
+  const getdata = () => {
+    console.log('requesting...');
+    fetch('http://192.168.43.39:5000/api/v1/transactions')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+  };
+
   return (
     <>
       <StatusBar barStyle="light-content" />
@@ -54,7 +64,7 @@ const App = () => {
             <Right />
           </Header>
           <Content padder>
-            <Card style={{...styles.row, justifyContent:'center'}}>
+            <Card style={{...styles.row, justifyContent: 'center'}}>
               <CardItem style={styles.col4}>
                 <Body>
                   <Text>Income</Text>
@@ -124,8 +134,8 @@ const App = () => {
                   <Label>Amount</Label>
                   <Input />
                 </Item>
-                <Button full primary style={styles.section}>
-                  <Text> Add data </Text>
+                <Button full primary style={styles.section} onPress={getdata}>
+                  <Text> Get data </Text>
                 </Button>
               </Form>
             </View>
