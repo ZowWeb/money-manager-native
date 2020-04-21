@@ -40,25 +40,31 @@ export const GlobalProvider = ({children}) => {
     }
   }
 
-  // async function deleteTransaction(id) {
-  //   dispatch({
-  //     type: "LOADING",
-  //   });
+  async function deleteTransaction(id) {
+    console.log('delete this id ',id);
+    dispatch({
+      type: "LOADING",
+    });
 
-  //   try {
-  //     await axios.delete(`/api/v1/transactions/${id}`);
+    const options = {
+      method: 'delete',
+      body: id,
+    };
 
-  //     dispatch({
-  //       type: "DELETE_TRANSACTION",
-  //       payload: id,
-  //     });
-  //   } catch (err) {
-  //     dispatch({
-  //       type: "TRANSACTION_ERROR",
-  //       payload: err.response.data.error,
-  //     });
-  //   }
-  // }
+    try {
+      await fetch(`http://192.168.43.39:5000/api/v1/transactions/${id}`, options)
+
+      dispatch({
+        type: "DELETE_TRANSACTION",
+        payload: id,
+      });
+    } catch (err) {
+      dispatch({
+        type: "TRANSACTION_ERROR",
+        payload: 'Can not do that',
+      });
+    }
+  }
 
   async function addTransaction(transaction) {
     console.log('transaction data sending to server: ', transaction);
@@ -100,7 +106,7 @@ export const GlobalProvider = ({children}) => {
         error: state.error,
         loading: state.loading,
         getTransactions,
-        // deleteTransaction,
+        deleteTransaction,
         addTransaction,
       }}>
       {children}
