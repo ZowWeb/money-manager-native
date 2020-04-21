@@ -59,31 +59,38 @@ export const GlobalProvider = ({children}) => {
   //   }
   // }
 
-  // async function addTransaction(transaction) {
-  //   dispatch({
-  //     type: "LOADING",
-  //   });
+  async function addTransaction(transaction) {
+    console.log('transaction data sending to server: ', transaction);
+    dispatch({
+      type: 'LOADING',
+    });
 
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   };
+    const options = {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(transaction),
+    };
 
-  //   try {
-  //     const res = await axios.post("/api/v1/transactions", transaction, config);
+    try {
+      const res = await fetch(
+        'http://192.168.43.39:5000/api/v1/transactions',
+        options,
+      ).then(r => r.json());
+      console.log('res: ', res);
 
-  //     dispatch({
-  //       type: "ADD_TRANSACTION",
-  //       payload: res.data.data,
-  //     });
-  //   } catch (err) {
-  //     dispatch({
-  //       type: "TRANSACTION_ERROR",
-  //       payload: err.response.data.error,
-  //     });
-  //   }
-  // }
+      dispatch({
+        type: 'ADD_TRANSACTION',
+        payload: res.data,
+      });
+    } catch (err) {
+      dispatch({
+        type: 'TRANSACTION_ERROR',
+        payload: err.data.error,
+      });
+    }
+  }
 
   return (
     <GlobalContext.Provider
@@ -93,7 +100,7 @@ export const GlobalProvider = ({children}) => {
         loading: state.loading,
         getTransactions,
         // deleteTransaction,
-        // addTransaction,
+        addTransaction,
       }}>
       {children}
     </GlobalContext.Provider>
