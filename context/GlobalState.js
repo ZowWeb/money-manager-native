@@ -22,7 +22,7 @@ export const GlobalProvider = ({children}) => {
   async function getTransactions() {
     try {
       const res = await fetch(
-        'http://192.168.43.39:5000/api/v1/transactions',
+        'https://money-manager-backend.herokuapp.com/api/v1/transactions',
       ).then(r => r.json());
 
       console.log('JSON data', res);
@@ -52,7 +52,7 @@ export const GlobalProvider = ({children}) => {
     };
 
     try {
-      await fetch(`http://192.168.43.39:5000/api/v1/transactions/${id}`, options)
+      await fetch(`https://money-manager-backend.herokuapp.com/api/v1/transactions/${id}`, options)
 
       dispatch({
         type: "DELETE_TRANSACTION",
@@ -82,7 +82,7 @@ export const GlobalProvider = ({children}) => {
 
     try {
       const res = await fetch(
-        'http://192.168.43.39:5000/api/v1/transactions',
+        'https://money-manager-backend.herokuapp.com/api/v1/transactions',
         options,
       ).then(r => r.json());
       console.log('res: ', res);
