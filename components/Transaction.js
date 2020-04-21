@@ -31,11 +31,10 @@ export const Transaction = ({transaction}) => {
             {sign}&#8377;{numberWithCommas(Math.abs(transaction.amount))}
           </Text>
           <Button
-            transparent
-            iconRight
             danger
+            rounded
             onPress={() => deleteTransaction(transaction._id)}>
-            <Icon name="home" />
+            <Icon name="trash" color="#fff" />
           </Button>
         </Body>
       </CardItem>
