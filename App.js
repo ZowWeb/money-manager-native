@@ -30,10 +30,9 @@ import {
   H3,
 } from 'native-base';
 
-import {Form, Item, Input, Label} from 'native-base';
-
 import {Overview} from './components/Overview';
 import {TransactionList} from './components/TransactionList';
+import {AddTransaction} from './components/AddTransaction';
 
 import {GlobalProvider} from './context/GlobalState';
 
@@ -64,22 +63,7 @@ const App = () => {
             <TransactionList />
 
             {/* Add Transaction */}
-            <View style={styles.section}>
-              <H1 style={styles.sectionTitle}>Add your transaction</H1>
-              <Form>
-                <Item stackedLabel style={styles.sectionDescription}>
-                  <Label>Text</Label>
-                  <Input />
-                </Item>
-                <Item stackedLabel last style={styles.sectionDescription}>
-                  <Label>Amount</Label>
-                  <Input />
-                </Item>
-                <Button full primary style={styles.section}>
-                  <Text> Add data </Text>
-                </Button>
-              </Form>
-            </View>
+            <AddTransaction />
           </Content>
         </ScrollView>
       </SafeAreaView>
