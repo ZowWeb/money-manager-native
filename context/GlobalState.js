@@ -32,9 +32,10 @@ export const GlobalProvider = ({children}) => {
         payload: res.data,
       });
     } catch (err) {
+      console.log('error payload (err): ',err)
       dispatch({
         type: 'TRANSACTION_ERROR',
-        payload: err.data.error,
+        payload: 'Could not fetch data',
       });
     }
   }

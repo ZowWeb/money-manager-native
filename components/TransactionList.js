@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {H1} from 'native-base';
+import {H1, Toast} from 'native-base';
 
 import {Transaction} from './Transaction';
 
@@ -31,12 +31,15 @@ const styles = StyleSheet.create({
 });
 
 export const TransactionList = () => {
-  const {transactions, getTransactions, loading} = useContext(GlobalContext);
+  const {transactions, getTransactions, loading, error} = useContext(GlobalContext);
 
   useEffect(() => {
     getTransactions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    Toast.show({
+      text: error || 'Fetching data...',
+    });
+  }, [loading]);
 
   return (
     <View style={styles.section}>

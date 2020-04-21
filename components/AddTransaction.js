@@ -98,7 +98,7 @@ export const AddTransaction = () => {
           primary
           style={styles.section}
           onPress={onSubmit}
-          disabled={loading}>
+          disabled={loading || error!==null}>
           <Text> Add data </Text>
         </Button>
       </Form>
