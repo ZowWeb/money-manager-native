@@ -35,21 +35,25 @@ export const AddTransaction = () => {
   const [amount, setAmount] = useState('');
   // const [loading, setLoading] = useState(false);
 
-  const {addTransaction, loading} = useContext(GlobalContext);
+  const {addTransaction, loading, error} = useContext(GlobalContext);
 
   const onSubmit = async e => {
     e.preventDefault();
 
-    const newTransaction = {
-      id: Math.floor(Math.random() * 100000000),
-      text,
-      amount: +amount * minus,
-    };
+    if (text == '' || amount == '') {
+      // TODO error handle
+    } else {
+      const newTransaction = {
+        id: Math.floor(Math.random() * 100000000),
+        text,
+        amount: +amount * minus,
+      };
 
-    // Call the action
-    await addTransaction(newTransaction);
-    setText('');
-    setAmount('');
+      // Call the action
+      await addTransaction(newTransaction);
+      setText('');
+      setAmount('');
+    }
   };
 
   return (
