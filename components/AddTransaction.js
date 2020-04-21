@@ -1,7 +1,17 @@
 import React, {useState, useContext} from 'react';
 import {View, StyleSheet} from 'react-native';
 
-import {Form, Item, Input, Label, Button, Text, H1, H3} from 'native-base';
+import {
+  Form,
+  Item,
+  Input,
+  Label,
+  Button,
+  Text,
+  H1,
+  H3,
+  Toast,
+} from 'native-base';
 
 import {GlobalContext} from '../context/GlobalState';
 
@@ -43,6 +53,10 @@ export const AddTransaction = () => {
     if (text == '' || amount == '') {
       // TODO error handle
     } else {
+      Toast.show({
+        text: 'Give me un momento ...',
+      });
+
       const newTransaction = {
         id: Math.floor(Math.random() * 100000000),
         text,
@@ -53,6 +67,8 @@ export const AddTransaction = () => {
       await addTransaction(newTransaction);
       setText('');
       setAmount('');
+
+      Toast.hide();
     }
   };
 

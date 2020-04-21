@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import {
-  Container,
+  Root,
   Header,
   Content,
   Button,
@@ -39,34 +39,36 @@ import {GlobalProvider} from './context/GlobalState';
 const App = () => {
   return (
     <GlobalProvider>
-      <StatusBar barStyle="light-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header>
-            <Left>
-              <Button transparent>
-                <Icon name="menu" />
-              </Button>
-            </Left>
-            <Body>
-              <Title>Header</Title>
-            </Body>
-            <Right />
-          </Header>
-          <Content padder>
-            {/* Overview */}
-            <Overview />
+      <Root>
+        <StatusBar barStyle="light-content" />
+        <SafeAreaView>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.scrollView}>
+            <Header>
+              <Left>
+                <Button transparent>
+                  <Icon name="menu" />
+                </Button>
+              </Left>
+              <Body>
+                <Title>Header</Title>
+              </Body>
+              <Right />
+            </Header>
+            <Content padder>
+              {/* Overview */}
+              <Overview />
 
-            {/* Transactions */}
-            <TransactionList />
+              {/* Transactions */}
+              <TransactionList />
 
-            {/* Add Transaction */}
-            <AddTransaction />
-          </Content>
-        </ScrollView>
-      </SafeAreaView>
+              {/* Add Transaction */}
+              <AddTransaction />
+            </Content>
+          </ScrollView>
+        </SafeAreaView>
+      </Root>
     </GlobalProvider>
   );
 };
