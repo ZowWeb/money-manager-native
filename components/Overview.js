@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Overview = () => {
+export default function Overview() {
   const {transactions, loading} = useContext(GlobalContext);
 
   // Update the income, expense and balance
@@ -41,4 +41,4 @@ export const Overview = () => {
       <Balance total={total} />
     </Card>
   );
-};
+}
