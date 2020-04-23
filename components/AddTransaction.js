@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export const AddTransaction = () => {
+export default function AddTransaction() {
   const [text, setText] = useState('');
   const [minus, setMinus] = useState(1);
   const [amount, setAmount] = useState('');
@@ -98,10 +98,10 @@ export const AddTransaction = () => {
           primary
           style={styles.section}
           onPress={onSubmit}
-          disabled={loading || error!==null}>
+          disabled={loading || error !== null}>
           <Text> Add data </Text>
         </Button>
       </Form>
     </View>
   );
-};
+}
