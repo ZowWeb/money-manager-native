@@ -30,8 +30,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export const TransactionList = () => {
-  const {transactions, getTransactions, loading, error} = useContext(GlobalContext);
+export default function TransactionList() {
+  const {transactions, getTransactions, loading, error} = useContext(
+    GlobalContext,
+  );
 
   useEffect(() => {
     getTransactions();
@@ -53,4 +55,4 @@ export const TransactionList = () => {
       ))}
     </View>
   );
-};
+}
