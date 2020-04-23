@@ -5,7 +5,7 @@ import {Transaction} from './Transaction';
 
 import {GlobalContext} from '../context/GlobalState';
 
-import {H1, Toast} from 'native-base';
+import {H1, Toast, List, Card} from 'native-base';
 import theme from '../theme';
 
 export default function TransactionList() {
@@ -24,13 +24,15 @@ export default function TransactionList() {
   return (
     <View style={theme.section}>
       <H1 style={theme.sectionTitle}>List of transactions</H1>
-      {transactions.map(transaction => (
-        <Transaction
-          key={transaction._id}
-          transaction={transaction}
-          loading={loading}
-        />
-      ))}
+      <Card>
+        {transactions.map(transaction => (
+          <Transaction
+            key={transaction._id}
+            transaction={transaction}
+            loading={loading}
+          />
+        ))}
+      </Card>
     </View>
   );
 }
