@@ -1,20 +1,12 @@
 import React, {useContext} from 'react';
-import {StyleSheet} from 'react-native';
 
-import {Card, CardItem, Text, Body, H1, Button, Icon} from 'native-base';
+import {Card, CardItem, Text, Body, Button, Icon} from 'native-base';
 
 import {GlobalContext} from '../context/GlobalState';
 
 import {numberWithCommas} from '../utils/format';
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 16,
-  },
-});
+import theme from '../theme';
 
 export const Transaction = ({transaction}) => {
   const {deleteTransaction} = useContext(GlobalContext);
@@ -24,10 +16,10 @@ export const Transaction = ({transaction}) => {
 
   return (
     <Card>
-      <CardItem style={styles.row}>
-        <Body style={styles.row}>
+      <CardItem style={theme.row}>
+        <Body style={theme.row}>
           <Text>{transaction.text}</Text>
-          <Text>
+          <Text note>
             {sign}&#8377;{numberWithCommas(Math.abs(transaction.amount))}
           </Text>
           <Button

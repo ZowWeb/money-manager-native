@@ -1,6 +1,4 @@
 import React, {useContext} from 'react';
-import {StyleSheet} from 'react-native';
-import {Card} from 'native-base';
 
 import {Income} from './Income';
 import {Expense} from './Expense';
@@ -8,14 +6,8 @@ import {Balance} from './Balance';
 
 import {GlobalContext} from '../context/GlobalState';
 
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 16,
-  },
-});
+import {Card} from 'native-base';
+import theme from '../theme';
 
 export default function Overview() {
   const {transactions, loading} = useContext(GlobalContext);
@@ -35,7 +27,7 @@ export default function Overview() {
   const total = amounts.reduce((acc, amount) => (acc += amount), 0);
 
   return (
-    <Card style={styles.row}>
+    <Card style={theme.row}>
       <Income income={income} />
       <Expense expense={expense} />
       <Balance total={total} />

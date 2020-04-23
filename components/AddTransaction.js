@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 
 import {
   Form,
@@ -15,29 +15,7 @@ import {
 
 import {GlobalContext} from '../context/GlobalState';
 
-const styles = StyleSheet.create({
-  section: {
-    marginTop: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#000',
-    paddingBottom: 8,
-    marginVertical: 16,
-    borderWidth: 0,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    marginLeft: 0,
-    paddingLeft: 0,
-    fontSize: 18,
-    fontWeight: '400',
-    color: '#000',
-  },
-});
+import theme from '../theme';
 
 export default function AddTransaction() {
   const [text, setText] = useState('');
@@ -73,10 +51,10 @@ export default function AddTransaction() {
   };
 
   return (
-    <View style={styles.section}>
-      <H1 style={styles.sectionTitle}>Add your transaction</H1>
+    <View style={theme.section}>
+      <H1 style={theme.sectionTitle}>Add your transaction</H1>
       <Form>
-        <Item stackedLabel style={styles.sectionDescription}>
+        <Item stackedLabel style={theme.sectionDescription}>
           <Label>Text</Label>
           <Input
             placeholder="Salary"
@@ -84,7 +62,7 @@ export default function AddTransaction() {
             onChangeText={text => setText(text)}
           />
         </Item>
-        <Item stackedLabel last style={styles.sectionDescription}>
+        <Item stackedLabel last style={theme.sectionDescription}>
           <Label>Amount</Label>
           <Input
             keyboardType="number-pad"
@@ -96,7 +74,7 @@ export default function AddTransaction() {
         <Button
           full
           primary
-          style={styles.section}
+          style={theme.section}
           onPress={onSubmit}
           disabled={loading || error !== null}>
           <Text> Add data </Text>
