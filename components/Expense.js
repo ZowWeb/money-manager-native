@@ -16,10 +16,8 @@ export const Expense = ({expense}) => {
         borderLeftColor: '#ccc',
         borderRightColor: '#ccc',
       }}>
-      <Body>
-        <Text note>Expense</Text>
-        <Text style={theme.highlight}>&#8377;{numberWithCommas(expense)}</Text>
-      </Body>
+      <Text note>Expense</Text>
+      <Text style={theme.highlight}>&#8377;{numberWithCommas(expense)}</Text>
     </CardItem>
   );
 };

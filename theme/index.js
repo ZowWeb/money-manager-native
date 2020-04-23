@@ -7,16 +7,17 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: constants.PADDING,
-	},
-	col4: {
+  },
+  col4: {
     flex: 1,
-    alignSelf: 'flex-end',
+    display: 'flex',
+    flexDirection: 'column',
   },
   highlight: {
     fontWeight: constants.FONT_WEIGHT_LIGHT,
     fontSize: constants.FONT_SIZE_LARGE,
   },
-	section: {
+  section: {
     marginTop: constants.MARGIN * 3,
   },
   sectionTitle: {

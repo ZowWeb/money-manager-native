@@ -8,10 +8,8 @@ import theme from '../theme';
 export const Income = ({income}) => {
   return (
     <CardItem style={theme.col4}>
-      <Body>
-        <Text note>Income</Text>
-        <Text style={theme.highlight}>&#8377;{numberWithCommas(income)}</Text>
-      </Body>
+      <Text note>Income</Text>
+      <Text style={theme.highlight}>&#8377;{numberWithCommas(income)}</Text>
     </CardItem>
   );
 };
