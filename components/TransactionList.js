@@ -17,9 +17,12 @@ export default function TransactionList() {
     getTransactions();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     Toast.show({
-      text: error || 'Fetching data...',
+      text: 'Loading...',
+      duration: 0,
     });
   }, [loading]);
+
+  loading == false && Toast.hide();
 
   return (
     <View style={theme.section}>
