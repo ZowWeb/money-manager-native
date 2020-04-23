@@ -57,3 +57,10 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# Hide release consts
+gradle.properties
+
+# Production/build files
+index.android.bundle
+android/app/src/main/res/raw/
