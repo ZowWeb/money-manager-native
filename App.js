@@ -26,7 +26,7 @@ const App = () => {
         <SafeAreaView>
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
-            style={{backgroundColor: '#eee'}}>
+            style={{backgroundColor: '#f0f4ff'}}>
             <Navbar />
             <Content padder>
               <Overview />
