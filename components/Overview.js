@@ -6,7 +6,7 @@ import {Balance} from './Balance';
 
 import {GlobalContext} from '../context/GlobalState';
 
-import {Card} from 'native-base';
+import {Card, View} from 'native-base';
 import theme from '../theme';
 
 export default function Overview() {
